@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Ansh Saxena — Flutter Developer Portfolio. 4+ years, 10+ production apps across EdTech, HealthTech, HRTech & FinTech.">
+  <meta name="keywords" content="Flutter Developer, Mobile Developer, Android, iOS, Dart, Ansh Saxena">
+  <meta name="author" content="Ansh Saxena">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ansh Saxena | Flutter Developer">
+  <meta property="og:description" content="4+ years Flutter expertise. 10+ production apps. EdTech, HealthTech, HRTech, FinTech.">
+  <meta property="og:type" content="website">
+
+  <title>Ansh Saxena | Flutter Developer</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #000000;
+    }
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #000;
+      font-family: monospace;
+    }
+    #loading-text {
+      color: #00F5FF;
+      font-size: 14px;
+      letter-spacing: 4px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    #loading-bar {
+      width: 200px;
+      height: 2px;
+      background: rgba(0,245,255,0.1);
+      margin-top: 20px;
+      border-radius: 1px;
+      overflow: hidden;
+    }
+    #loading-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00F5FF, #BF00FF);
+      animation: load 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    @keyframes load { 0%{width:0} 100%{width:100%} }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div id="loading-text">INITIALIZING...</div>
+    <div id="loading-bar"><div id="loading-fill"></div></div>
+  </div>
+
+  <script>
+    const serviceWorkerVersion = "1912924351";
+    window.addEventListener('load', function(ev) {
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            document.getElementById('loading').style.display = 'none';
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+  <script src="flutter.js" defer></script>
+</body>
+</html>
